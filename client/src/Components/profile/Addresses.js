@@ -167,7 +167,7 @@ export default function Addresses() {
                     </Form>
                 </Modal.Body>
                 <Modal.Footer>
-                    <Button variant="secondary" onClick={handleClose}></Button>
+                    <Button variant="secondary" onClick={handleClose}>Cancel</Button>
                 </Modal.Footer>
             </Modal>
             {/* Add Address Modal ends here */}

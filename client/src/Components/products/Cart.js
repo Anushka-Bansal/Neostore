@@ -101,58 +101,58 @@ export default function Cart() {
                 <Col md={9}>
                     <Card>
                         {/* Cart Table Starts */}
-                        {cart ? cart.map((value,index)=>{
-                            return (
-                                <Table  key={index}>
-                                <thead>
-                                    <tr>
-                                        <th >Product</th>
-                                        <th colSpan={3}>Quantity</th>
-                                        <th>Price</th>
-                                        <th>Total</th>
-                                        <th></th>
-                                    </tr>
-                                </thead>
-                                <tbody>
+                        <Table >
+                            <thead>
                                 <tr>
-                                    <td>
-                                        <Row>
-                                            <Col md={5}>
-                                            <img src={value.image} width="100px" height="80px"/>
-                                            </Col>
-                                            <Col md={5}>
-                                            {value.name}
-                                            </Col>
-                                        </Row>
-                                    </td>
-                                    <td>
-                                        <Button variant="dark"  onClick={() =>onRemove(value)} style={{borderRadius:"50%"}} >-</Button>
-                                    </td>
-                                    <td>
-                                        <Form.Control type="number"  min="1" max="20" value={value.quantity}  />
-                                    </td>
-                                    <td>
-                                        <Button variant="dark" onClick={() =>onAdd(value)} style={{borderRadius:"50%"}}>+</Button>
-                                    </td>
-                                    <td>
-                                        {value.price}/-
-                                    </td>
-                                    <td>
-                                        {value.quantity * value.price}/-
-                                    </td>
-                                    <td>
-                                        <Button variant="danger" onClick={() =>onDelete(index)}>Delete</Button>
-                                    </td>
-                                    {console.log(
-                                        total.push(
-                                            value.price * value.quantity
-                                        )
-                                    )}
+                                    <th >Product</th>
+                                    <th colSpan={3}>Quantity</th>
+                                    <th>Price</th>
+                                    <th>Total</th>
+                                    <th></th>
                                 </tr>
-                                </tbody>
-                                </Table>
-                            )
-                        } ): " "}
+                            </thead>
+                            <tbody>
+                            {cart ? cart.map((value,index)=>{
+                                return (         
+                                    <tr  key={index}>
+                                        <td>
+                                            <Row>
+                                                <Col md={5}>
+                                                <img src={value.image} width="100px" height="80px"/>
+                                                </Col>
+                                                <Col md={5}>
+                                                {value.name}
+                                                </Col>
+                                            </Row>
+                                        </td>
+                                        <td>
+                                            <Button variant="dark"  onClick={() =>onRemove(value)} style={{borderRadius:"50%"}} >-</Button>
+                                        </td>
+                                        <td>
+                                            <Form.Control type="number"  min="1" max="20" value={value.quantity}  />
+                                        </td>
+                                        <td>
+                                            <Button variant="dark" onClick={() =>onAdd(value)} style={{borderRadius:"50%"}}>+</Button>
+                                        </td>
+                                        <td>
+                                            {value.price}/-
+                                        </td>
+                                        <td>
+                                            {value.quantity * value.price}/-
+                                        </td>
+                                        <td>
+                                            <Button variant="danger" onClick={() =>onDelete(index)}>Delete</Button>
+                                        </td>
+                                        {console.log(
+                                            total.push(
+                                                value.price * value.quantity
+                                            )
+                                        )}
+                                    </tr>
+                                )
+                            } ): " "}
+                            </tbody>
+                        </Table>
                         {/* Cart Table Ends */}
                     </Card>
                 </Col>
