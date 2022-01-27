@@ -1,7 +1,5 @@
-import logo from './logo.svg';
 import './App.css';
 import {BrowserRouter as Router, Routes,Route } from 'react-router-dom';
-import Headers from './Components/common/Headers';
 import Home from './Components/dashboard/home';
 import Login from './Components/user/Login';
 import Registration from './Components/user/Registration';
@@ -37,7 +35,7 @@ function App() {
           <Route path="/forgotpassword" exact element={<ForgotPassword />} />
           <Route path ="/passwordform" exact element={<PasswordForm />} /> 
           <Route path="/products" exact element={<Products/>} />
-          <Route path="productDetails/:id" exact element={<ProductsDetails />} />
+          <Route path="/productDetails/:id" exact element={<ProductsDetails />} />
           <Route path="/profile" exact element={<Profile />} />
           <Route path="/edit-profile" exact element={<EditProfile />} />
           <Route path="/change-password" exact element={<ChangePassword />} />
@@ -50,8 +48,6 @@ function App() {
         </Routes>
         <Footers />
       </Router>
-        
-         {/* <Headers /> */}
     </div>
   );
 }

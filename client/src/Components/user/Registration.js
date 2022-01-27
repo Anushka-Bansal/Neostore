@@ -79,7 +79,7 @@ export default function Registration() {
                                 appId="869105660472693"
                                 onLoginSuccess={handleSocialLogin}
                                 onLoginFailure={handleSocialLoginFailure}
-                                style={{width:"60%"}}
+                                style={{width:"70%"}}
                                 >
                                 <Facebook style={{fontSize:"25px"}} />&nbsp;&nbsp; Register with Facebook
                             </SocialButton>

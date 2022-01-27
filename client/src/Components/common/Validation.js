@@ -42,7 +42,7 @@ const Validation = (callback) => {
             case "password":
                 errors.password = regForPassword.test(value)
                     ? ""
-                    : "Password must be between 8-25 characters and should contain atleast one lowercase letter, one uppercase letter amd one special character";
+                    : "Please enter 8 digit password with special characters";
                 break;
         
             case "cpassword":

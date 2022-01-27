@@ -12,7 +12,7 @@ export default function Orders() {
     email = decode.oid
     }
     const [details,setDetails]=useState([]);
-    const [images,setImages]=useState([]);
+    // const [images,setImages]=useState([]);
 
     //Fetching orders from databse 
     useEffect(()=>{
@@ -22,10 +22,11 @@ export default function Orders() {
             setDetails(res.data)
             console.log(res.data.cart)
             // setImages(res.data.cart)
-            let abc = res.data.forEach(element => {
-                console.log(element.cart)
-                setImages(element.cart)
-            });    
+            // let abc= res.data;
+            // abc.forEach(element => {
+            //     console.log(element.cart)
+            //     setImages(element.cart)
+            // });    
         })
     },[])
     console.log(details)
@@ -61,12 +62,12 @@ export default function Orders() {
                             <Row >
                             <Card.Title>
                                 {/* For displaying images  */}
-                                {images ? images.map((value,index)=>{
+                                {details[index].cart.map((value,index)=>{
                                     return(
                                         <img src={value.image} alt="product image" key={index}
                                         style={{height:"120px", width:"120px"}} className="m-4" />
                                     )
-                                }):""}
+                                })}
                             </Card.Title>
                             </Row>
                             <Button variant="primary" href={`/invoice/${value._id}`}>View and Download Invoice</Button>

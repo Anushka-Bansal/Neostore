@@ -31,9 +31,6 @@ const nodemailer = require("nodemailer");
             "Preview URL: %s",
             nodemailer.getTestMessageUrl(data)
         );
-    //   else {
-    //       console.log('Email sent successfully');
-    //   }
     });
 }
 module.exports = {sendmail}

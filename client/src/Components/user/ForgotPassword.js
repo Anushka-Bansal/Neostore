@@ -68,7 +68,7 @@ export default function FotgotPassword() {
                             <Row>
                                 <Col md={8}>
                                     <Form.Group className="mb-3 mt-3" controlId="formBasicEmail">
-                                        <Form.Label>Enter Otp:</Form.Label>
+                                        <Form.Label><b>Enter Otp:</b></Form.Label>
                                         <Form.Control type="number" placeholder="Verification Code" name="vcode"  className="form-control" ref={otpRef}  required />
                                     </Form.Group>
                                 </Col>

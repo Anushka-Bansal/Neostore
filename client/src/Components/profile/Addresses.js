@@ -226,7 +226,7 @@ export default function Addresses() {
                     </Form>
                 </Modal.Body>
                 <Modal.Footer>
-                <Button variant="secondary" onClick={editClose}> </Button>
+                <Button variant="secondary" onClick={editClose}>Cancel</Button>
                 {/* <Button variant="primary" onClick={()=>updateAddress()}>Update</Button> */}
                 </Modal.Footer>
             </Modal>

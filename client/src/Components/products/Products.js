@@ -13,10 +13,10 @@ export default function Products() {
     const [category,setCategory] = useState([]);
     const navigate = useNavigate();
 
-    // const [pagenumber, setPagenumber] = useState(0);
-    // const productsPerPage = 6;
-    // const pageVisited = pagenumber * productsPerPage
-    // const pageCount = Math.ceil(items.length / productsPerPage)
+    const [pagenumber, setPagenumber] = useState(0);
+    const productsPerPage = 3;
+    const pageVisited = pagenumber * productsPerPage
+    const pageCount = Math.ceil(items.length / productsPerPage)
 
     //Fetching the products categories and colors from database and set them
     useEffect(()=>{
@@ -110,9 +110,32 @@ export default function Products() {
         console.log(items)
     }
 
-    // const handlePageClick = ({ selected }) => {
-    //     setPagenumber(selected)
-    // };
+    const handlePageClick = ({ selected }) => {
+        setPagenumber(selected)
+    };
+
+    //map function to display all products 
+    const displayProducts = items.slice(pageVisited, pageVisited + productsPerPage).map((value,index)=>{
+        return(
+            <Card style={{ width: "20rem", margin: "1rem" }} className="container" key={index} >
+                <a href={`/productDetails/${value._id}`}>
+                    <Card.Img src={value.product_image} height="200px" className='m-2 '/>
+                </a>
+                <Card.Body>
+                    <Card.Title className="text-danger">
+                        <a href={`/productDetails/${value._id}`} >{value.product_name}</a>
+                        </Card.Title>
+                    <Card.Text><b>Price:
+                        {value.product_cost}/- 
+                        </b>
+                    </Card.Text>
+                    <div style={{marginLeft:"100px"}}>
+                        <ReactStars edit={false} isHalf={true} count={5} value={value.product_rating} />
+                    </div>
+                </Card.Body>
+            </Card> 
+        )
+    })
 
     return (
         <div>
@@ -154,41 +177,23 @@ export default function Products() {
                 </Col>
                 <Col md={11}>
                     <Row style={{ justifyContent: "center" }}>
-                        {/* Map function to display all products */}
-                        {items.map((value,index) =>{    
-                            return( 
-                                <Card style={{ width: "20rem", margin: "1rem" }} className="container" key={index} >
-                                    <a href={`/productDetails/${value._id}`}>
-                                        <Card.Img src={value.product_image} height="200px" className='m-2 '/>
-                                    </a>
-                                    <Card.Body>
-                                        <Card.Title className="text-danger">
-                                            <a href={`/productDetails/${value._id}`} >{value.product_name}</a>
-                                            </Card.Title>
-                                        <Card.Text><b>Price:
-                                            {value.product_cost}/- 
-                                            </b>
-                                        </Card.Text>
-                                        <div style={{marginLeft:"100px"}}>
-                                            <ReactStars edit={false} isHalf={true} count={5} value={value.product_rating} />
-                                        </div>
-                                    </Card.Body>
-                                </Card> 
-                            )}
-                        )}        
+                        {/* Calling map function of products here */}
+                        {displayProducts}
                     </Row>
                 </Col>
-                {/* <ReactPaginate
+
+                <ReactPaginate
                     breakLabel="..."
-                    previousLabel={"< previous"}
+                    previousLabel={"< prev"}
                     nextLabel={"next >"}
-                    // pageCount={pageCount}
+                    pageCount={pageCount}
                     onPageChange={handlePageClick}
-                    // pageRangeDisplayed={5}
-                    
-                    
-                    // renderOnZeroPageCount={null}
-                /> */}
+                    containerClassName={"paginationBttns"}
+                    previousLinkClassName={"previousBttn"}
+                    nextLinkClassName={"nextBttn"}
+                    disbaledClassName={"paginationDisabled"}
+                    activeClass
+                />
             </Row>
             </div>        
         </div>

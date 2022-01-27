@@ -12,7 +12,7 @@ export default function OrderDetails() {
     let email = decode.oid
 
     const [details,setDetails]=useState([]);
-    const [images,setImages]=useState([]);
+    // const [images,setImages]=useState([]);
 
     //Fetching orders from databse 
     useEffect(()=>{
@@ -22,10 +22,10 @@ export default function OrderDetails() {
             setDetails(res.data)
             console.log(res.data.cart)
             // setImages(res.data.cart)
-            let abc = res.data.forEach(element => {
-                console.log(element.cart)
-                setImages(element.cart)
-            });
+            // let abc = res.data.forEach(element => {
+            //     console.log(element.cart)
+            //     setImages(element.cart)
+            // });
         })
     },[])
     console.log(details)
@@ -72,7 +72,7 @@ export default function OrderDetails() {
                                         <Card.Body>
                                             <Row >
                                             <Card.Title>
-                                                {images.map((value,index)=>{
+                                                {details[ind].cart.map((value,index)=>{
                                                     return(
                                                         <img src={value.image} alt="product image" key={index}
                                                         style={{height:"120px", width:"120px"}} className="m-4" />

@@ -4,7 +4,10 @@ import ReactStars from 'react-rating-stars-component';
 import { getColors, productDetails } from '../../Config/ProductServices';
 import { Container, Row, Col, Button,Tabs, Tab,Table } from 'react-bootstrap';
 import ReactImageMagnify from 'react-image-magnify'
-import { Facebook, Google, Linkedin, ShareFill, Whatsapp,Twitter, CartPlusFill } from 'react-bootstrap-icons';
+import { ShareFill, CartPlusFill } from 'react-bootstrap-icons';
+import {FacebookIcon,FacebookShareButton,WhatsappIcon,WhatsappShareButton,
+        LinkedinIcon,LinkedinShareButton,TelegramIcon,TelegramShareButton,
+        TwitterIcon,TwitterShareButton,PinterestIcon,PinterestShareButton} from 'react-share';
 
 export default function ProductsDetails() {
     const {id} = useParams();
@@ -116,13 +119,32 @@ export default function ProductsDetails() {
                                                 width={20} height={20} style={{fill : `${color}`}} />
                                                 </svg> 
                                             <br/>
+                                            {/* Social sharing buttons */}
                                             Share : <ShareFill />
                                             <br/>
-                                            <Facebook fill='blue' style={{fontSize:"30px"}} />&nbsp;&nbsp;&nbsp;
-                                            <Whatsapp  fill='green' style={{fontSize:"30px"}} />&nbsp;&nbsp;&nbsp;
-                                            <Linkedin fill='blue' style={{fontSize:"30px"}} />&nbsp;&nbsp;&nbsp;
-                                            <Google fill='red' style={{fontSize:"30px"}} />&nbsp;&nbsp;&nbsp;
-                                            <Twitter fill='blue' style={{fontSize:"30px"}} />&nbsp;&nbsp;&nbsp;
+                                            <FacebookShareButton url={"http://www.Neostore.com"} hashtag="#NeoStore" className="socialMediaButton">
+                                                <FacebookIcon size={46} round={true} />
+                                            </FacebookShareButton>
+
+                                            <WhatsappShareButton url={"http://www.Neostore.com"} hashtag="#NeoStore" className="socialMediaButton">
+                                                <WhatsappIcon size={46} round={true} />
+                                            </WhatsappShareButton>
+                                            
+                                            <LinkedinShareButton url={"http://www.Neostore.com"} hashtag="#NeoStore" className="socialMediaButton">
+                                                <LinkedinIcon size={46} round={true} />
+                                            </LinkedinShareButton>
+
+                                            <TelegramShareButton url={"http://www.Neostore.com"} hashtag="#NeoStore" className="socialMediaButton">
+                                                <TelegramIcon size={46} round={true} />
+                                            </TelegramShareButton>
+
+                                            <PinterestShareButton url={"http://www.Neostore.com"} hashtag="#NeoStore" className="socialMediaButton">
+                                                <PinterestIcon size={46} round={true} />
+                                            </PinterestShareButton>
+
+                                            <TwitterShareButton url={"http://www.Neostore.com"} hashtag="#NeoStore" className="socialMediaButton">
+                                                <TwitterIcon size={46} round={true} />
+                                            </TwitterShareButton>
                                             </p>
                                         </div>
                                         <div className='mt-5'>
